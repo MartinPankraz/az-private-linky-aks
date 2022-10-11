@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-btp
+spec:
+  selector:
+    matchLabels:
+      app: hello-btp
+  template:
+    metadata:
+      labels:
+        app: hello-btp
+    spec:
+      volumes:
+      - name: workdir
+      initContainers:
+      - name: install
+        image: busybox:1.35.0
+        command:
+          - "/bin/sh"
+        args: [ "-c", "echo '{ \"hello\": \"btp\" }' > /work-dir/index.html"]
+        volumeMounts:
+        - name: workdir
+          mountPath: "/work-dir"
+      containers:
+      - name: hello-btp
+        image: nginx:1.23.1-alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: workdir
+          mountPath: /usr/share/nginx/html
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
