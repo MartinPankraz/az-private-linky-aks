@@ -40,7 +40,6 @@ Authentication | [based on your service needs] |
 ### Additional Properties
 key | value |
 --- | --- |
-TrustAll | true |
 HTML5.DynamicDestination | true |
 WebIDEEnabled | true |
 WebIDEUsage | odata_abap |
