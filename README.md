@@ -8,6 +8,9 @@ Main project can be found [here](https://github.com/MartinPankraz/az-private-lin
 
 Learn more about the PLS configuration options [here](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/).
 
+> 📢**WARNING**⚠️
+> This example assumes a configuration with a single-service deployment with NGINX. Hence the Private Link Service annotations are maintained **on the service level**. In case you prefer an Ingress Controller, **the annotations need to be maintained there**. Any Ingress Controller needs to be configured individually. See [here](https://learn.microsoft.com/en-us/azure/aks/ingress-basic?tabs=azure-cli) for more details. Complete your YAML with the annotations maintained from the shared snippet in [this repos](https://github.com/MartinPankraz/az-private-linky-aks/blob/main/app/nginx-ingress-example.yml).
+
 - Create an [AKS cluster](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#create-an-aks-cluster)
 
 Choose ingress flavor for your AKS in light of Azure Private Link Service:
