@@ -9,6 +9,15 @@ Main project can be found [here](https://github.com/MartinPankraz/az-private-lin
 Learn more about the PLS configuration options [here](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/).
 
 - Create an [AKS cluster](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#create-an-aks-cluster)
+
+Choose ingress flavor for your AKS in light of Azure Private Link Service:
+
+- Standard Azure load balancer
+- Ingress Controller for AKS
+- Azure Application Gateway
+
+The following steps apply to the Standard Azure load balancer option and single service deployment.
+
 - Run `kubectl -f deployment.yaml`
 - Run `kubectl -f service.yaml`
 - Check your configuration with `kubectl describe svc hello-btp-service`
