@@ -25,7 +25,33 @@ The following steps apply to the standard Azure load balancer option and single 
 5. Check your configuration with `kubectl describe svc hello-btp-service`
 6. As of this step the process is identical to the standard process. Finish the handshake by completing the link from SAP BTP and approving the connection request from the PLS UI on AKS. See the [SAP docs](https://help.sap.com/docs/PRIVATE_LINK/42acd88cb4134ba2a7d3e0e62c9fe6cf/e8bc0c6440834a47a0ff57cb4efc0dc2.html) or the [first post of the blog series](https://blogs.sap.com/2021/07/02/whatever-happens-in-an-azure-and-btp-private-linky-swear-stays-in-the-linky-swear/) for more details.
 
+## SAP BTP Destination configuration
+
+Without SSL setup on NGINX, ingress controler or Azure Application Gateway you need to fallback to http for your integration test
+
+key | value |
+--- | --- |
+Name | aks |
+Type | HTTP |
+URL | http://[your private hostname]/ |
+Proxy Type | PrivateLink |
+Authentication | [based on your service needs] |
+
+### Additional Properties
+key | value |
+--- | --- |
+TrustAll | true |
+HTML5.DynamicDestination | true |
+WebIDEEnabled | true |
+WebIDEUsage | odata_abap |
+
 ## Become truly private and encrypted
 
 - Continue your journey with a fully private AKS cluster [here](https://learn.microsoft.com/azure/aks/private-clusters)
 - Add SSL to your AKS hosted workload using [NGINX](https://www.nginx.com/blog/nginx-ssl/) or [Mesh](https://learn.microsoft.com/azure/aks/servicemesh-about). See the [AKS ingress controller docs](https://learn.microsoft.com/azure/aks/ingress-tls?tabs=azure-cli) for more details.
+
+## Hints on troubleshooting
+
+- [Azure Private Link Connectivity troubleshooting guide](https://learn.microsoft.com/azure/private-link/troubleshoot-private-link-connectivity)
+- Test connectivity without XSUAA first and don't make to many configurations at the same time
+
