@@ -7,8 +7,6 @@ metadata:
     service.beta.kubernetes.io/azure-pls-create: "true"
     service.beta.kubernetes.io/azure-pls-name: hello-btp-pls
     service.beta.kubernetes.io/azure-pls-ip-configuration-subnet: aks-subnet
-    service.beta.kubernetes.io/azure-pls-ip-configuration-ip-address-count: "1"
-    service.beta.kubernetes.io/azure-pls-ip-configuration-ip-address: 10.224.10.0 # Must be available in pls-subnet
     service.beta.kubernetes.io/azure-pls-proxy-protocol: "false"
     service.beta.kubernetes.io/azure-pls-visibility: "*"
 spec:

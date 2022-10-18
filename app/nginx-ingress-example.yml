@@ -3,8 +3,6 @@ controller:
         annotations:
             service.beta.kubernetes.io/azure-load-balancer-internal: "true"
             service.beta.kubernetes.io/azure-pls-create: "true"
-            service.beta.kubernetes.io/azure-pls-ip-configuration-ip-address: 10.224.200.1
-            service.beta.kubernetes.io/azure-pls-ip-configuration-ip-address-count: "1"
             service.beta.kubernetes.io/azure-pls-ip-configuration-subnet: aks-subnet
             service.beta.kubernetes.io/azure-pls-name: nginx-ingress-pls
             service.beta.kubernetes.io/azure-pls-proxy-protocol: "false"
