@@ -21,7 +21,7 @@ Main project can be found [here](https://github.com/MartinPankraz/az-private-lin
 The following steps apply to the standard Azure load balancer option and single service deployment.
 
 3. Run `kubectl apply -f deployment.yaml`
-4. Run `kubectl apply -f service.yaml`. Learn more about the Private Link Service configuration options for AKS [here](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/).
+4. Run `kubectl apply -f service.yaml`. Learn more about the Private Link Service configuration options for AKS [here](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/). For instance use "service.beta.kubernetes.io/azure-pls-auto-approval" to auto-approve connection requests from specified Azure subscriptions IDs.
 5. Check your configuration with `kubectl describe svc hello-btp-service`
 6. As of this step the process is identical to the standard process. Finish the handshake by completing the link from SAP BTP and approving the connection request from the PLS UI on AKS. See the [SAP docs](https://help.sap.com/docs/PRIVATE_LINK/42acd88cb4134ba2a7d3e0e62c9fe6cf/e8bc0c6440834a47a0ff57cb4efc0dc2.html) or the [first post of the blog series](https://blogs.sap.com/2021/07/02/whatever-happens-in-an-azure-and-btp-private-linky-swear-stays-in-the-linky-swear/) for more details.
 
